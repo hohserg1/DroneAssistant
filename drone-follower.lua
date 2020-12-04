@@ -1,10 +1,8 @@
 local cx,cy,cz = -41+297, -58.62+57, 63+193
 local port = 111
 
-local modem = component.proxy(component.list("modem")())
 local navigation = component.proxy(component.list("navigation")())
 local drone = component.proxy(component.list("drone")())
-modem.open(port)
 
 local function currentPos()
     local x,y,z = navigation.getPosition()
@@ -63,9 +61,9 @@ while true do
     end
     
     
-    if drone.getOffset() < 0.01 and drone.getVelocity()==0 then
+    --[[if drone.getOffset() < 0.01 and drone.getVelocity()==0 then
         table.insert(posList,{currentPos()})
-    end
+    end]]
     --[[
     if drone.getOffset() < 0.01 and drone.getVelocity()==0 then
         if #posQueue>0 then
